@@ -66,18 +66,24 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
-                @if (Route::has('login'))
+                {{-- @if (Route::has('login'))
                 
                     @auth
                         <a href="{{ url('/home') }}">Hello {{Auth::guard('web')->user()->name}}</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>     {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
 
-                        @if (Route::has('register'))
+                       {{--  @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 
+                @endif --}} 
+                @if (Auth::guard('web')->check())
+                        <a href="{{ route('home') }}"> Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login </a> {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
+                        <a href="{{ route('register') }}">Register </a>
                 @endif
                 @if (Auth::guard('admin')->check())
                         <a href="{{ route('admin.dashboard') }}">Admin</a>
