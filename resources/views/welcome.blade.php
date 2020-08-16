@@ -65,20 +65,36 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
+            <div class="top-right links">
+                @if (Route::has('login'))
+                
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Hello {{Auth::guard('web')->user()->name}}</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Login</a>     {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
-                </div>
-            @endif
-
+                
+                @endif
+                @if (Auth::guard('admin')->check())
+                        <a href="{{ route('admin.dashboard') }}">Admin</a>
+                    @else
+                        <a href="{{ route('admin.login') }}">Login Admin</a>     {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
+                        <a href="{{ route('admin.register') }}">Register Admin</a>
+                       
+                    
+                
+                @endif
+                @if (Auth::guard('vendor')->check()))
+                        <a href="{{ route('vendor.dashboard') }}">vendor</a>
+                    @else
+                        <a href="{{ route('vendor.login') }}">Login Vendor</a>     {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
+                        <a href="{{ route('vendor.register') }}">Register Vendor</a>
+            |   @endif
+            </div>      
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
