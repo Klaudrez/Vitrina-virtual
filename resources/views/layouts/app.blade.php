@@ -23,8 +23,8 @@
    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light " style="background-color: #008d5e;">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown" >
+                <button class="btn btn-secondary dropdown-toggle" style="background-color: #007950;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -54,11 +54,22 @@
                             <a class="nav-link" href="#">Marketplace</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">acerca de nosotros</a>
+                            <a class="nav-link" href="#">acerca de</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">contacto</a>
                           </li>
+                          
+                            <form class="form-inline">
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-success" type="button">@</button>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon1">
+                            </div>
+                            </form>
+                          
                           {{-- <span class="navbar-text">
                             Navbar text inline 
                           </span> --}}
@@ -79,7 +90,8 @@
                         <!-- Authentication Links -->
                         @if (Auth::guard('web')->check())
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" 
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::guard('web')->user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -163,9 +175,50 @@
             </a>
         </nav>
 
-        <main class="my-4">
+        <main class="">
             @yield('content')
         </main>
     </div>
+<nav class="navbar navbar-expand-md navbar-light  " style="background-color: #008d5e;">
+    <ul class="navbar-nav mr-auto">
+        <span class="navbar-text">
+            Vitrina virtual | by los Covid Bryant
+        </span> 
+    </ul>
+    @if (Auth::guard('admin')->check())
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{Auth::guard('admin')->user()->name}} <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register Admin') }}</a>
+            </li>
+    @endif
+        <li class="nav-item active">
+            <a class="" href="#">Instagram</a>
+        </li>
+        <li class="nav-item">
+            <a class="" href="#">Facebook</a>
+        </li>  
+        <li class="nav-item">  
+            <a class="" href="#">Twitter</a>
+        </li>
+</nav>
 </body>
 </html>
