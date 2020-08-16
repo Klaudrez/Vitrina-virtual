@@ -82,13 +82,10 @@
                 @if (Auth::guard('admin')->check())
                         <a href="{{ route('admin.dashboard') }}">Admin</a>
                     @else
-                        <a href="{{ route('admin.login') }}">Login Admin</a>     {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
+                        <a href="{{ route('admin.login') }}">Login Admin</a> {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
                         <a href="{{ route('admin.register') }}">Register Admin</a>
-                       
-                    
-                
                 @endif
-                @if (Auth::guard('vendor')->check()))
+                @if (Auth::guard('vendor')->check())
                         <a href="{{ route('vendor.dashboard') }}">vendor</a>
                     @else
                         <a href="{{ route('vendor.login') }}">Login Vendor</a>     {{--  Hello {{Auth::guard('admin')->user()->name}} --}}
