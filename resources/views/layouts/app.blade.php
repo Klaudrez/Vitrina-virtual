@@ -114,7 +114,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                         @endif
-                        @if (Auth::guard('admin')->check())
+                       @if (Auth::guard('admin')->check())
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{Auth::guard('admin')->user()->name}} <span class="caret"></span>
@@ -131,15 +131,15 @@
                                     </form>
                                 </div>
                             </li>
-                            @else
+                            {{-- @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register Admin') }}</a>
-                                </li>
+                                </li> --}}
                         @endif
-                        @if (Auth::guard('vendor')->check())
+                        {{-- @if (Auth::guard('vendor')->check())
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{Auth::guard('admin')->user()->name}} <span class="caret"></span>
@@ -163,7 +163,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('vendor.register') }}">{{ __('Register Vendor') }}</a>
                                 </li>
-                        @endif
+                        @endif --}}
                     {{-- /////////////////////////////////////////////////////////////// --}}
                             
                             
@@ -179,15 +179,16 @@
             @yield('content')
         </main>
     </div>
-<nav class="navbar navbar-expand-md navbar-light  " style="background-color: #008d5e;">
+
+<nav class="navbar navbar-expand-md  navbar-light" style="background-color: #008d5e;">
     <ul class="navbar-nav mr-auto">
         <span class="navbar-text">
             Vitrina virtual | by los Covid Bryant
         </span> 
     </ul>
     @if (Auth::guard('admin')->check())
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        {{-- <li class="nav-item dropdown">
+            <a id="navbarDropdown" class=" dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{Auth::guard('admin')->user()->name}} <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -201,13 +202,13 @@
                     @csrf
                 </form>
             </div>
-        </li>
+        </li> --}}
         @else
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
+                <a class="" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register Admin') }}</a>
+                <a class="" href="{{ route('admin.register') }}">{{ __('Register Admin') }}</a>
             </li>
     @endif
         <li class="nav-item active">
@@ -220,5 +221,7 @@
             <a class="" href="#">Twitter</a>
         </li>
 </nav>
+
+
 </body>
 </html>
