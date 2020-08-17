@@ -23,7 +23,7 @@
    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light " style="background-color: #008d5e;">
-            <div class="dropdown" >
+            {{-- <div class="dropdown" >
                 <button class="btn btn-secondary dropdown-toggle" style="background-color: #007950;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -32,9 +32,9 @@
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-            </div>  
+            </div>  --}} 
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('inicio') }}">
                     Vitrina virtual{{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -108,10 +108,10 @@
                             </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('user.login') }}">{{ __('Login') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('user.register') }}">{{ __('Register') }}</a>
                                 </li>
                         @endif
                        @if (Auth::guard('admin')->check())

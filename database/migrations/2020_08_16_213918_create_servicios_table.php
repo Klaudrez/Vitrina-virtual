@@ -22,6 +22,8 @@ class CreateServiciosTable extends Migration
             $table->boolean('aprobado');
             $table->timestamps();
             ///////////////relaciones//////////////
+            $table->unsignedInteger('Usuario_id'); //Usuario ID //Usuario ID
+            $table->unsignedInteger('Admin_id'); //Usuario ID
         });
     }
 
