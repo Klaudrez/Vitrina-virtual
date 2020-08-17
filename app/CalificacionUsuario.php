@@ -10,6 +10,6 @@ class CalificacionUsuario extends Model
         return $this->belongsTo(Producto::class); //Pertenece a un Usuario 
     }
     public function Admin(){ //$RRSS->User->nombre
-        return $this->belongsTo(Usuario::class); //Pertenece a un Usuario 
+        return $this->belongsTo(User::class); //Pertenece a un Usuario 
     }
 }
