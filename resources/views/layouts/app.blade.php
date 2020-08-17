@@ -34,7 +34,7 @@
                 </div>
             </div>  --}} 
             <div class="container">
-                <a class="navbar-brand" href="{{ route('inicio') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     Vitrina virtual{{-- {{ config('app.name', 'Laravel') }} --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -45,7 +45,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('inicio')}}">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('home')}}">Inicio <span class="sr-only">(current)</span></a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">Servicios</a>
@@ -108,10 +108,10 @@
                             </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                         @endif
                        @if (Auth::guard('admin')->check())

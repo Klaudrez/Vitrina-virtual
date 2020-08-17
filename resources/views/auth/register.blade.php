@@ -38,7 +38,19 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="contacto" class="col-md-4 col-form-label text-md-right">{{ __('contacto') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="contacto" type="text" class="form-control @error('contacto') is-invalid @enderror" contacto="contacto" value="{{ old('contacto') }}" required autocomplete="contacto" autofocus>
+
+                                @error('contacto')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -60,6 +72,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
