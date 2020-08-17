@@ -23,16 +23,15 @@
                     <td>{{$item->precioXmayor}}</td>
                 </tr>
             @endif 
-            @if ($item->aprobado==0 && $item->priority==0)
-                <th scope="row">1</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            @endif
         @endforeach
         @foreach ($producto as $item)
-            
+        <th scope="row">1</th>
+            <td>{{$item->nombre}}</td>
+            <td>{{$item->precio}}</td>
+            <td>{{$item->descripcion}}</td>
+            <td>{{$item->direccion}}</td>
+            <td>{{$item->precioXmayor}}</td>
+        </tr>
         @endforeach
     </tbody>
   </table>
