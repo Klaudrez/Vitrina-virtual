@@ -10,12 +10,12 @@ class VendorLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:vendor')->except('logout');
+        $this->middleware('guest:web')->except('logout');
     }
 
     public function showLoginForm()
     {
-        return view('auth.vendor-login');
+        return view('auth.login');
     }
 
     public function login(Request $request)
@@ -27,9 +27,9 @@ class VendorLoginController extends Controller
         ]);
 
         // Attempt to log the user in
-        if(Auth::guard('vendor')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember))
+        if(Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember))
         {
-            return redirect()->intended(route('vendor.dashboard'));
+            return redirect()->intended(route('inicio'));
         }
 
         // if unsuccessful

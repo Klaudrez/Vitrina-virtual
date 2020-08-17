@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
 Auth::routes();
 
@@ -39,10 +39,10 @@ Route::prefix('admin')->group(function(){
 
 
 // Vendor routes
-Route::prefix('vendor')->group(function(){
-    Route::get('/', 'Users\Vendor\VendorController@index')->name('vendor.dashboard');
-    Route::get('/login', 'Auth\VendorLoginController@showLoginForm')->name('vendor.login');
-    Route::post('/login', 'Auth\VendorLoginController@login')->name('vendor.login.submit');
-    Route::get('/register', 'Auth\VendorRegisterController@showRegisterForm')->name('vendor.register');
-    Route::post('/register', 'Auth\VendorRegisterController@register')->name('vendor.register.submit');
+Route::prefix('user')->group(function(){
+    Route::get('/', 'Users\Vendor\VendorController@index')->name('user.dashboard');
+    Route::get('/login', 'Auth\VendorLoginController@showLoginForm')->name('user.login');
+    Route::post('/login', 'Auth\VendorLoginController@login')->name('user.login.submit');
+    Route::get('/register', 'Auth\VendorRegisterController@showRegisterForm')->name('user.register');
+    Route::post('/register', 'Auth\VendorRegisterController@register')->name('user.register.submit');
 });

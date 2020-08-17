@@ -11,12 +11,12 @@ class VendorRegisterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:vendor');
+        $this->middleware('guest:web');
     }
 
     public function showRegisterForm()
     {
-        return view('auth.vendor-register');
+        return view('auth.register');
     }
 
     public function register(Request $request)
@@ -30,6 +30,6 @@ class VendorRegisterController extends Controller
         $request['password'] = Hash::make($request->password);
         Vendor::create($request->all());
 
-        return redirect()->intended(route('vendor.dashboard'));
+        return redirect()->intended(route('user.dashboard'));
     }
 }
