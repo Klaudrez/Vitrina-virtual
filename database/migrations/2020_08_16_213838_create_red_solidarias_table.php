@@ -15,7 +15,10 @@ class CreateRedSolidariasTable extends Migration
     {
         Schema::create('red_solidarias', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->boolean('aprobado');
             $table->timestamps();
+            ///////////////relaciones//////////////
         });
     }
 

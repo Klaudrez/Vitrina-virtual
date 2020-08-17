@@ -15,7 +15,13 @@ class CreateServiciosTable extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->boolean('priority');
+            $table->text('descripcion')->nullable();
+            $table->text('direccion')->nullable();
+            $table->boolean('aprobado');
             $table->timestamps();
+            ///////////////relaciones//////////////
         });
     }
 

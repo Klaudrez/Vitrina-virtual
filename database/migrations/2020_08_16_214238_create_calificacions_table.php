@@ -15,7 +15,11 @@ class CreateCalificacionsTable extends Migration
     {
         Schema::create('calificacions', function (Blueprint $table) {
             $table->id();
+            $table->text('comentario');
+            $table->integer('puntuacion');
+            $table->string('correo');
             $table->timestamps();
+            ///////////////relaciones//////////////
         });
     }
 

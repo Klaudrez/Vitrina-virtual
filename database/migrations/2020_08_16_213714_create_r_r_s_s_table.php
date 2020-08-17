@@ -15,7 +15,12 @@ class CreateRRSSTable extends Migration
     {
         Schema::create('r_r_s_s', function (Blueprint $table) {
             $table->id();
+            $table->string('facebook')->nullable();
+            $table->string('Instagram')->nullable();
+            $table->string('Twitter')->nullable();
             $table->timestamps();
+            ///////////////relaciones//////////////
+            $table->unsignedInteger('User_id'); //USUArio ID
         });
     }
 
