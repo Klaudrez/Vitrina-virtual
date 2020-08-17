@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCalificacionsTable extends Migration
+class CreateCalificacionServiciosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateCalificacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('calificacions', function (Blueprint $table) {
+        Schema::create('calificacion_servicios', function (Blueprint $table) {
             $table->id();
             $table->text('comentario');
             $table->integer('puntuacion');
             $table->string('correo');
             $table->timestamps();
             ///////////////relaciones//////////////
+            $table->unsignedInteger('Servicio_id'); //Usuario ID //Usuario ID
+            $table->unsignedInteger('Admin_id'); //Usuario ID
         });
     }
 
@@ -30,6 +32,6 @@ class CreateCalificacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calificacions');
+        Schema::dropIfExists('calificacion_servicios');
     }
 }

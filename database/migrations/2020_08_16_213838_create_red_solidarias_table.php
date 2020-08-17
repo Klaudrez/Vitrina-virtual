@@ -19,6 +19,7 @@ class CreateRedSolidariasTable extends Migration
             $table->boolean('aprobado');
             $table->timestamps();
             ///////////////relaciones//////////////
+            $table->unsignedInteger('User_id'); //Usuario ID
         });
     }
 
