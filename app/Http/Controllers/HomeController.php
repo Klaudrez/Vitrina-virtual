@@ -25,9 +25,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function inicio()
-    {
-        return view('inicio');
-    }
+    
     
 }
