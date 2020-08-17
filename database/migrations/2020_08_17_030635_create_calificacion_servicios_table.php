@@ -24,7 +24,7 @@ class CreateCalificacionServiciosTable extends Migration
             $table->unsignedBigInteger('Servicios_id'); // Relación con User
             $table->foreign('Servicios_id')->references('id')->on('servicios');
             //$table->unsignedInteger('Admin_id'); //Usuario ID
-            $table->unsignedBigInteger('Admin_id'); // Relación con User
+            $table->unsignedBigInteger('Admin_id')->nullable(); // Relación con User
             $table->foreign('Admin_id')->references('id')->on('admins');
         });
     }

@@ -26,7 +26,7 @@ class CreateServiciosTable extends Migration
             $table->unsignedBigInteger('User_id'); // Relación con User
             $table->foreign('User_id')->references('id')->on('users');
             //$table->unsignedInteger('Admin_id'); //Usuario ID
-            $table->unsignedBigInteger('Admin_id'); // Relación con User
+            $table->unsignedBigInteger('Admin_id')->nullable(); // Relación con User
             $table->foreign('Admin_id')->references('id')->on('admins');
         });
     }

@@ -12,4 +12,7 @@ class Producto extends Model
     public function Admin(){ //$RRSS->User->nombre
         return $this->belongsTo(Admin::class); //Pertenece a un Usuario 
     }
+    public function categoria(){
+        return $this->belongsToMany(Categoria::class); // Muchos a muchos
+    }
 }

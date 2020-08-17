@@ -24,7 +24,7 @@ class CreateCalificacionProductosTable extends Migration
             $table->unsignedBigInteger('producto_id'); // Relación con User
             $table->foreign('producto_id')->references('id')->on('productos');
             //$table->unsignedInteger('Admin_id'); //Usuario ID
-            $table->unsignedBigInteger('Admin_id'); // Relación con User
+            $table->unsignedBigInteger('Admin_id')->nullable(); // Relación con User
             $table->foreign('Admin_id')->references('id')->on('admins');
         });
     }
