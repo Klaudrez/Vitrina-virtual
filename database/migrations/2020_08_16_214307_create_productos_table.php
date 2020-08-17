@@ -17,7 +17,7 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('precio');
-            $table->string('priority');
+            $table->boolean('priority');
             $table->text('descripcion')->nullable();
             $table->text('direccion')->nullable();
             $table->string('precioXmayor')->nullable();
