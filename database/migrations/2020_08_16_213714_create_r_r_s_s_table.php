@@ -20,7 +20,9 @@ class CreateRRSSTable extends Migration
             $table->string('Twitter')->nullable();
             $table->timestamps();
             ///////////////relaciones//////////////
-            $table->unsignedInteger('User_id'); //Usuario ID
+            //$table->unsignedInteger('User_id'); //Usuario ID
+            $table->unsignedBigInteger('User_id'); // Relación con User
+            $table->foreign('User_id')->references('id')->on('users');
         });
     }
 

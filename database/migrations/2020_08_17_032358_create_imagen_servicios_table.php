@@ -19,7 +19,9 @@ class CreateImagenServiciosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->timestamps();
             ///////////////relaciones//////////////
-            $table->unsignedInteger('Serivicio_id'); //Usuario ID //Usuario ID
+            //$table->unsignedInteger('Servicio_id'); //Usuario ID //Usuario ID
+            $table->unsignedBigInteger('Servicio_id'); // Relación con User
+            $table->foreign('Servicio_id')->references('id')->on('servicios');
         });
     }
 

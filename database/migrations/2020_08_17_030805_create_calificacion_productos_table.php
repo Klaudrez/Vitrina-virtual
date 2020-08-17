@@ -20,8 +20,12 @@ class CreateCalificacionProductosTable extends Migration
             $table->string('correo');
             $table->timestamps();
             ///////////////relaciones//////////////
-            $table->unsignedInteger('Producto_id'); //Usuario ID //Usuario ID
-            $table->unsignedInteger('Admin_id'); //Usuario ID
+            //$table->unsignedInteger('Producto_id'); //Usuario ID //Usuario ID
+            $table->unsignedBigInteger('producto_id'); // Relación con User
+            $table->foreign('producto_id')->references('id')->on('productos');
+            //$table->unsignedInteger('Admin_id'); //Usuario ID
+            $table->unsignedBigInteger('Admin_id'); // Relación con User
+            $table->foreign('Admin_id')->references('id')->on('admins');
         });
     }
 

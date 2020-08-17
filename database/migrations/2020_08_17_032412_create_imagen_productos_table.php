@@ -19,7 +19,9 @@ class CreateImagenProductosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->timestamps();
             ///////////////relaciones//////////////
-            $table->unsignedInteger('Producto_id'); //Usuario ID //Usuario ID
+            //$table->unsignedInteger('Producto_id'); //Usuario ID //Usuario ID
+            $table->unsignedBigInteger('Producto_id'); // Relación con User
+            $table->foreign('Producto_id')->references('id')->on('productos');
         });
     }
 

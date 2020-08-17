@@ -20,8 +20,12 @@ class CreateCalificacionUsuariosTable extends Migration
             $table->string('correo');
             $table->timestamps();
             ///////////////relaciones//////////////
-            $table->unsignedInteger('Usuario_id'); //Usuario ID //Usuario ID
-            $table->unsignedInteger('Admin_id'); //Usuario ID
+            //$table->unsignedInteger('Usuario_id'); //Usuario ID //Usuario ID
+            $table->unsignedBigInteger('User_id'); // Relación con User
+            $table->foreign('User_id')->references('id')->on('users');
+            //$table->unsignedInteger('Admin_id'); //Usuario ID
+            $table->unsignedBigInteger('Admin_id'); // Relación con User
+            $table->foreign('Admin_id')->references('id')->on('admins');
         });
     }
 
