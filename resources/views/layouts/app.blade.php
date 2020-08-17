@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        #link { color: #FF0000; } /* CSS link color */
+    </style>
 </head>
 <body>
    
@@ -51,10 +54,10 @@
                             <a class="nav-link" href="#">Servicios</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Marketplace</a>
+                            <a class="nav-link" href="{{route('marketplace')}}">Marketplace</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">acerca de</a>
+                          <a class="nav-link" href="{{ route('acercaDe')}}">acerca de</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">contacto</a>
@@ -129,6 +132,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('SolicitudesDeProductos') }}"
+                                    {{-- onclick="event.preventDefault();
+                                                    document.getElementById('SolicitudesDeProductos').submit();" --}}>
+                                        {{ __('Solicitudes De Productos') }}
+                                    </a>
                                 </div>
                             </li>
                             {{-- @else
@@ -179,47 +187,54 @@
             @yield('content')
         </main>
     </div>
+    <div class="container p-5 my-5"></div>
 
-<nav class="navbar navbar-expand-md  navbar-light" style="background-color: #008d5e;">
+<nav class="navbar navbar-expand-md  navbar-light" style="background-color: #008d5e;"> {{-- my-5 p5 --}}
+
     <ul class="navbar-nav mr-auto">
         <span class="navbar-text">
             Vitrina virtual | by los Covid Bryant
         </span> 
     </ul>
-    @if (Auth::guard('admin')->check())
-        {{-- <li class="nav-item dropdown">
+    <ul class="navbar-nav ml-auto">
+        @if (Auth::guard('admin')->check())
+            {{-- <li class="nav-item dropdown">
             <a id="navbarDropdown" class=" dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{Auth::guard('admin')->user()->name}} <span class="caret"></span>
+            {{Auth::guard('admin')->user()->name}} <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+            </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
             </div>
-        </li> --}}
-        @else
-            <li class="nav-item">
-                <a class="" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="" href="{{ route('admin.register') }}">{{ __('Register Admin') }}</a>
-            </li>
-    @endif
-        <li class="nav-item active">
-            <a class="" href="#">Instagram</a>
+            </li> --}}
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login Admin') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Register Admin') }}</a>
+                </li>
+        @endif
+        <li class="nav-item ">
+            <a id="black" class="nav-link" href="#">Instagram</a>
         </li>
         <li class="nav-item">
-            <a class="" href="#">Facebook</a>
+            <a id="black" class="nav-link" href="#">Facebook</a>
         </li>  
         <li class="nav-item">  
-            <a class="" href="#">Twitter</a>
+            <a id="black" class="nav-link" href="#">Twitter</a>
         </li>
+        
+        
+        </ul>
+    </ul>
 </nav>
 
 

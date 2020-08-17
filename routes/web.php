@@ -14,14 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
  
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 }); 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+////////////Paginas publicas///////////////
+Route::get('/home', 'PageController@inicio')->name('home');
 Route::get('/inicio', 'PageController@inicio')->name('inicio');
+Route::get('/marketplace', 'PageController@marketplace')->name('marketplace');
+Route::get('/acercaDe', 'PageController@acercaDe')->name('acercaDe');
 
+/////////////Solo Admin/////////////////
+Route::get('/SolicitudesDeProductos', 'AdminPageController@SolicitudesDeProductos')->name('SolicitudesDeProductos');
 
 
 
@@ -40,9 +45,9 @@ Route::prefix('admin')->group(function(){
 
 // Vendor routes
 Route::prefix('user')->group(function(){
-    Route::get('/', 'Users\Vendor\VendorController@index')->name('user.dashboard');
-    Route::get('/login', 'Auth\VendorLoginController@showLoginForm')->name('user.login');
-    Route::post('/login', 'Auth\VendorLoginController@login')->name('user.login.submit');
-    Route::get('/register', 'Auth\VendorRegisterController@showRegisterForm')->name('user.register');
-    Route::post('/register', 'Auth\VendorRegisterController@register')->name('user.register.submit');
+    Route::get('/', 'Users\Vendor\VendorController@index')->name('vendor.dashboard');
+    Route::get('/login', 'Auth\VendorLoginController@showLoginForm')->name('vendor.login');
+    Route::post('/login', 'Auth\VendorLoginController@login')->name('vendor.login.submit');
+    Route::get('/register', 'Auth\VendorRegisterController@showRegisterForm')->name('vendor.register');
+    Route::post('/register', 'Auth\VendorRegisterController@register')->name('vendor.register.submit');
 });
